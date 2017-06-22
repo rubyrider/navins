@@ -1,14 +1,103 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Navins</title>
-    <%= csrf_meta_tags %>
+<html lang="en">
+<head>
+  <title>Navins</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<div id="navbar" class="navbar-fixed scrollspy">
+  <nav class="white">
+    <div class="nav-wrapper container">
+      <div class="container"><a href="/" class="brand-logo">NCSupport</a></div>
+
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="head-link" href="#features">Features</a></li>
+        <li><a class="head-link" href="#aboutus">About Us</a></li>
+        <li><a class="head-link" href="#contactus">Contact Us</a></li>
+
+        <% if current_user.present? %>
+          <li><%= link_to 'Sign Out', url_for(controller: 'devise/sessions', action: 'destroy'), class: "head-link", method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign In', url_for(controller: 'devise/sessions', action: 'new') %></li>
+          <li><%= link_to 'Sign Up', url_for(controller: 'devise/registrations', action: 'new')%></li>
+        <% end %>
+      </ul>
+
+      <ul class="right side-nav" id="mobile-demo">
+        <li><a class="head-link" href="#projects">Projects</a></li>
+        <li><a class="head-link" href="#aboutus">About Us</a></li>
+        <li><a class="head-link" href="#contactus">Contact Us</a></li>
+
+        <% if current_user.present? %>
+          <li><%= link_to 'Sign Out', url_for(controller: 'devise/sessions', action: 'destroy'), class: "head-link", method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign Up', url_for(controller: 'devise/sessions', action: 'new'), class: "head-link" %></li>
+          <li><%= link_to 'Sign Up', url_for(controller: 'devise/registrations', action: 'new'), class: "head-link" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center teal-text text-lighten-2" style="color: #fff !important;">Navins Customer Support</h1>
+      <div class="row center">
+        <h5 class="header col s12 light" style="color: #fff;">Chat with your customer with Navins Customer Support application</h5>
+      </div>
+      <%- unless current_user %>
+        <div class="row center">
+          <a href="<%= url_for(controller: 'devise/registrations', action: 'new') %>" class="btn-large waves-effect waves-light purple lighten-1">Sign
+            Up</a>
+        </div>
+      <% end %>
+      <br><br>
+
+    </div>
+  </div>
+  <div class="parallax">
+    <img src="<%= asset_path('idea.jpeg') %>" alt="cover"></div>
+</div>
+
+  <%= yield %>
+
+<footer class="page-footer purple lighten-1">
+
+  <div class="footer-copyright">
+    <div class="container">
+      <p>Copyright © Your website name</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+    $(document).ready(function () {
+        $('.materialboxed').materialbox();
+        $('.button-collapse').sideNav();
+
+    });
+</script>
+<script>
+    $('.head-link').click(function (e) {
+        e.preventDefault();
+
+        var goto = $(this).attr('href');
+
+        $('html, body').animate({
+            scrollTop: $(goto).offset().top
+        }, 800);
+    });
+
+</script>
+</body>
+</body>
 </html>
