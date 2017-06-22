@@ -52,3 +52,19 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'devise'
+gem 'trailblazer'
+gem 'trailblazer-rails'
+gem 'trailblazer-loader'
+gem 'trailblazer-operation'
+gem 'trailblazer-cells'
+gem 'reform'
+gem 'reform-rails'
+
+gem 'materialize-sass'
+
+gem 'capistrano'
+gem 'capistrano-rbenv'
+gem 'capistrano-bundler'
+gem 'capistrano3-puma'
