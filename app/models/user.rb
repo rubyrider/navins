@@ -29,4 +29,14 @@ class User < ApplicationRecord
   has_many :messages
   has_many :conversations, foreign_key: :sender_id, inverse_of: :sender
   has_many :received_conversations, class_name: 'Conversation', foreign_key: :recipient_id, inverse_of: :receiver
+
+  GENDER_DICTIONARY = [
+    ['Male', :male],
+    ['Female', :female],
+    ['Third Gender', :third_gender]
+  ]
+
+  def full_name
+    [first_name, last_name].compact.join(' ')
+  end
 end
