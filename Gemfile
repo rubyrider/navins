@@ -70,3 +70,5 @@ gem 'capistrano-bundler'
 gem 'capistrano3-puma'
 
 gem 'jquery-rails'
+
+gem 'activeadmin'

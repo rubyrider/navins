@@ -14,7 +14,7 @@
 <div id="navbar" class="navbar-fixed scrollspy">
   <nav class="white">
     <div class="nav-wrapper container">
-      <div class="container"><a href="/" class="brand-logo">NCSupport</a></div>
+      <a href="/" class="brand-logo">NCSupport</a>
 
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       <ul class="right hide-on-med-and-down">
@@ -26,7 +26,7 @@
           <li><%= link_to 'Sign Out', url_for(controller: 'devise/sessions', action: 'destroy'), class: "head-link", method: :delete %></li>
         <% else %>
           <li><%= link_to 'Sign In', url_for(controller: 'devise/sessions', action: 'new') %></li>
-          <li><%= link_to 'Sign Up', url_for(controller: 'devise/registrations', action: 'new')%></li>
+          <li><%= link_to 'Sign Up', url_for(controller: 'devise/registrations', action: 'new') %></li>
         <% end %>
       </ul>
 
@@ -52,7 +52,8 @@
       <br><br>
       <h1 class="header center teal-text text-lighten-2" style="color: #fff !important;">Navins Customer Support</h1>
       <div class="row center">
-        <h5 class="header col s12 light" style="color: #fff;">Chat with your customer with Navins Customer Support application</h5>
+        <h5 class="header col s12 light" style="color: #fff;">Chat with your customer with Navins Customer Support
+          application</h5>
       </div>
       <%- unless current_user %>
         <div class="row center">
@@ -68,13 +69,13 @@
     <img src="<%= asset_path('idea.jpeg') %>" alt="cover"></div>
 </div>
 
-  <%= yield %>
+<%= yield %>
 
 <footer class="page-footer purple lighten-1">
 
   <div class="footer-copyright">
     <div class="container">
-      <p>Copyright © Your website name</p>
+      <p>Copyright <%= Time.zone.now.year %> © Navin Software</p>
     </div>
   </div>
 </footer>
@@ -83,7 +84,6 @@
     $(document).ready(function () {
         $('.materialboxed').materialbox();
         $('.button-collapse').sideNav();
-
     });
 </script>
 <script>
