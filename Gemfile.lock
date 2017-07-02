@@ -104,6 +104,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    database_cleaner (1.6.1)
     declarative (0.0.9)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
@@ -122,6 +123,12 @@ GEM
       uber (< 0.2.0)
     erubi (1.6.0)
     execjs (2.7.0)
+    fabrication (2.16.1)
+    fabrication-rails (0.0.1)
+      fabrication
+      railties (>= 3.0)
+    faker (1.7.3)
+      i18n (~> 0.5)
     ffi (1.9.18)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -335,7 +342,10 @@ DEPENDENCIES
   capistrano3-puma
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  database_cleaner
   devise
+  fabrication-rails
+  faker
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
