@@ -7,14 +7,14 @@ Minitest::Reporters.use!
 DatabaseCleaner.strategy = :transaction
 
 class ActionDispatch::IntegrationTest
-	include Devise::Test::IntegrationHelpers
+  include Devise::Test::IntegrationHelpers
 end
 
 # Operation test class
 class OperationTestCase < Minitest::Spec
-	include ActiveSupport::Testing::Assertions
+  include ActiveSupport::Testing::Assertions
 
-	before :each do
+  before :each do
     DatabaseCleaner.start
   end
 
