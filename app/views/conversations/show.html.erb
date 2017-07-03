@@ -1,7 +1,0 @@
-<div class="container">
-  <h2 class="light-blue-text">Subject: <%= @conversation.subject %></h2>
-  <br/>
-  <%= link_to 'Add Message', new_conversation_message_path(@conversation), class: 'btn' %> <br /><br />
-  <%= link_to 'Edit', edit_conversation_path(@conversation), class: 'btn' %> <br /><br />
-  <%= link_to 'Back', conversations_path, class: 'btn' %>
-</div>
